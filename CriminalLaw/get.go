@@ -88,6 +88,8 @@ func isCriminal(JusticeType string, CivilNature string, CriminalNature string, C
 		return true
 	} else if JusticeType == "ok" && CriminalSubject == "ok" {
 		return true
+	} else if JusticeType == "ok" && CivilNature == "ok" && CriminalNature == "ok" {
+		return true
 	} else {
 		return false
 	}
