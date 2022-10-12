@@ -14,8 +14,11 @@ func GetResult(line Structs.CsvStruct) Structs.CriminalAnalysis {
 	subjectVerifier := getCriminalLaw(line.Subject)
 	criminal := isCriminal(justiceSegmentVerifier, natureVerifier, natureVerifierCriminalLaw, subjectVerifier)
 
+	decompose, _ := CNJ.DecomposeCNJ(line.CnjNumber)
+
 	return Structs.CriminalAnalysis{
 		CNJ:                       line.CnjNumber,
+		CNJYear:                   decompose.ProtocolYear,
 		Nature:                    line.Nature,
 		Subject:                   line.Subject,
 		IsCriminal:                line.IsCriminal,

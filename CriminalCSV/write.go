@@ -47,6 +47,7 @@ func createFile(p string) (*os.File, error) {
 func generateHeaders() []string {
 	return []string{
 		"CNJ",
+		"CNJYear",
 		"NATURE",
 		"SUBJECT",
 		"IsCriminal",
@@ -62,6 +63,7 @@ func generateHeaders() []string {
 func generateRow(row Structs.CriminalAnalysis) []string {
 	return []string{
 		row.CNJ,
+		row.CNJYear,
 		row.Nature,
 		row.Subject,
 		row.IsCriminal,

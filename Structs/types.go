@@ -2,6 +2,7 @@ package Structs
 
 type CriminalAnalysis struct {
 	CNJ                       string `json:"CNJ,omitempty"`
+	CNJYear                   string `json:"CNJYear,omitempty"`
 	Nature                    string `json:"Nature,omitempty"`
 	Subject                   string `json:"Subject,omitempty"`
 	IsCriminal                string `json:"IsCriminal,omitempty"`
