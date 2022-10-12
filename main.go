@@ -7,7 +7,7 @@ import (
 	"github.com/Darklabel91/Penal/Structs"
 )
 
-const Path = "/Users/danielfillol/Desktop/teste.csv"
+const Path = "example.csv"
 
 func main() {
 	//read the csv
