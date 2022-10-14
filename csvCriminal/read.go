@@ -1,13 +1,12 @@
-package CriminalCSV
+package csvCriminal
 
 import (
 	"encoding/csv"
-	"github.com/Darklabel91/Penal/Structs"
 	"os"
 )
 
 //ReadCsvFile reads a csv file from a given path
-func ReadCsvFile(filePath string, separator rune) ([]Structs.CsvStruct, error) {
+func ReadCsvFile(filePath string, separator rune) ([]CsvStruct, error) {
 	csvFile, err := os.Open(filePath)
 	if err != nil {
 		return nil, err
@@ -23,10 +22,10 @@ func ReadCsvFile(filePath string, separator rune) ([]Structs.CsvStruct, error) {
 		return nil, err
 	}
 
-	var data []Structs.CsvStruct
+	var data []CsvStruct
 	for i, line := range csvData {
 		if i != 0 {
-			var newData Structs.CsvStruct
+			var newData CsvStruct
 			newData.CnjNumber = line[0]
 			newData.DocIdType = line[1]
 			newData.DocIdNumber = line[2]
