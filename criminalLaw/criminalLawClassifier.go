@@ -9,7 +9,10 @@ func Classifier(line csvCriminal.CsvStruct) (csvCriminal.CriminalAnalysis, error
 	cnj, err := getCNJAnalysis(line.CnjNumber)
 	natureVerifier := getNatureCivil(line.Nature)
 	natureVerifierCriminalLaw := getCriminalLaw(line.Nature)
-	subjectVerifier := getCriminalLaw(line.Subject)
+	subjectVerifier := getCriminalLaw(line.Subjects)
+	if subjectVerifier != "ok" {
+		subjectVerifier = getCriminalLaw(line.Subject)
+	}
 	criminal := isCriminal(cnj.Status, natureVerifier, natureVerifierCriminalLaw, subjectVerifier)
 	legislation := lawsFound(line.LawsViaCnjSubject)
 	bestLaw := fetchBestLaw(legislation)
@@ -29,6 +32,7 @@ func Classifier(line csvCriminal.CsvStruct) (csvCriminal.CriminalAnalysis, error
 		CoverName:                 line.CoverName,
 		Nature:                    line.Nature,
 		Subject:                   line.Subject,
+		Subjects:                  line.Subjects,
 		LawsViaCnjSubject:         line.LawsViaCnjSubject,
 		Pole:                      line.Pole,
 		IsCriminal:                line.IsCriminal,
@@ -42,6 +46,7 @@ func Classifier(line csvCriminal.CsvStruct) (csvCriminal.CriminalAnalysis, error
 		Law:                       bestLaw.Law,
 		LawNickname:               bestLaw.LawNickname,
 		LawDefinition:             bestLaw.LawDefinition,
+		RelatedLawsuits:           line.RelatedLawsuits,
 		AllLaws:                   legislation,
 	}, err
 }

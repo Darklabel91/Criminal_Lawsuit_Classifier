@@ -73,6 +73,9 @@ func getNatureCivil(searchWord string) string {
 
 //criminalLaw struct that contains possible matches with criminal law
 var criminalLaw = []string{
+	"juizado especial crime (jecr)",
+	"juizado especial crime",
+	"jecr",
 	"cpp",
 	"ceman",
 	"execução penal",

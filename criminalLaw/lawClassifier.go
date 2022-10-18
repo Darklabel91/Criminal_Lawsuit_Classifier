@@ -32,7 +32,7 @@ func lawsFound(law string) []csvCriminal.LawAnalysis {
 func fetchBestLaw(laws []csvCriminal.LawAnalysis) csvCriminal.LawAnalysis {
 	if len(laws) > 0 {
 		for _, law := range laws {
-			if law.LawDefinition != "?" && law.LawNickname == "Código Penal" || law.LawNickname == "Lei de Drogas" || law.LawNickname == "Lwi de Armas" || law.LawNickname == "Lei Maria da Penha" || law.LawNickname == "Lei das Contravenções Penais" {
+			if law.LawDefinition != "?" && law.LawNickname == "Código Penal" || law.LawNickname == "Lei de Drogas" || law.LawNickname == "Lei de Armas" || law.LawNickname == "Lei Maria da Penha" || law.LawNickname == "Lei das Contravenções Penais" {
 				return law
 			} else if law.LawDefinition != "?" {
 				return law

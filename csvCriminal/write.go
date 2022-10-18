@@ -2,14 +2,13 @@ package csvCriminal
 
 import (
 	"encoding/csv"
-	"fmt"
 	"os"
 	"path/filepath"
 	"strconv"
 )
 
 //WriteCSV exports a csv to a given folder
-func writeCSV(fileName string, folderName string, Rows []CriminalAnalysis) error {
+func WriteCSV(fileName string, folderName string, Rows []CriminalAnalysis) error {
 	var rows [][]string
 
 	rows = append(rows, generateHeaders())
@@ -60,10 +59,12 @@ func generateHeaders() []string {
 		"CoverName",
 		"NATURE",
 		"SUBJECT",
+		"Subjects",
 		"LawsViaCnjSubject",
 		"Pole",
 		"IsCriminal",
 		"IsCarta",
+		"RelatedLawsuits",
 		"JusticeSegmentVerifier",
 		"NatureVerifier",
 		"NatureVerifier2",
@@ -99,10 +100,12 @@ func generateRow(row CriminalAnalysis) []string {
 		row.CoverName,
 		row.Nature,
 		row.Subject,
+		row.Subjects,
 		row.LawsViaCnjSubject,
 		row.Pole,
 		row.IsCriminal,
 		row.IsCarta,
+		row.RelatedLawsuits,
 		row.JusticeSegmentVerifier,
 		row.NatureVerifier,
 		row.NatureVerifierCriminalLaw,
@@ -113,23 +116,5 @@ func generateRow(row CriminalAnalysis) []string {
 		row.LawNickname,
 		row.LawDefinition,
 		laws,
-	}
-}
-
-//Export output a csv for every type of classification
-func Export(criminalData []CriminalAnalysis, otherData []CriminalAnalysis, allLawsuits []CriminalAnalysis) {
-	err := writeCSV("criminal", "csvCriminal/Results", criminalData)
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	err = writeCSV("outros", "csvCriminal/Results", otherData)
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	err = writeCSV("all", "csvCriminal/Results", allLawsuits)
-	if err != nil {
-		fmt.Println(err)
 	}
 }

@@ -7,11 +7,7 @@ import (
 
 const Path = "example.csv"
 
-var (
-	criminalLawsuits    []csvCriminal.CriminalAnalysis
-	nonCriminalLawsuits []csvCriminal.CriminalAnalysis
-	allLawsuits         []csvCriminal.CriminalAnalysis
-)
+var allLawsuits []csvCriminal.CriminalAnalysis
 
 func main() {
 	//read the csv
@@ -20,19 +16,9 @@ func main() {
 	//main
 	for _, line := range csvFile {
 		data, _ := criminalLaw.Classifier(line)
-		lawsuitCSV(data)
+		allLawsuits = append(allLawsuits, data)
 	}
 
 	//export the criminal lawsuits
-	csvCriminal.Export(criminalLawsuits, nonCriminalLawsuits, allLawsuits)
-}
-
-//lawsuitCSV appends data in specific arrays
-func lawsuitCSV(data csvCriminal.CriminalAnalysis) {
-	allLawsuits = append(allLawsuits, data)
-	if data.IsCriminalVerifier {
-		criminalLawsuits = append(criminalLawsuits, data)
-	} else {
-		nonCriminalLawsuits = append(nonCriminalLawsuits, data)
-	}
+	csvCriminal.WriteCSV("all", "csvCriminal/Results", allLawsuits)
 }
