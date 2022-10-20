@@ -4,6 +4,7 @@ Simple way of reading a .csv file to determine if a lawsuit is of criminal natur
 
 ## Dependecies
 - [CNJ_Validate](https://github.com/Darklabel91/CNJ_Validate)
+- [Criminal_Classifier](https://github.com/Darklabel91/Criminal_Classifier)
 
 ## CSV 
 
