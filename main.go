@@ -22,7 +22,7 @@ func main() {
 	}
 
 	//export the criminal lawsuits
-	csvCriminal.WriteCSV("all", "csvCriminal/Results", allLawsuits)
+	csvCriminal.WriteCSV("result", "Results", allLawsuits)
 }
 
 //classifier return CriminalAnalysis for one CsvStruct searched
