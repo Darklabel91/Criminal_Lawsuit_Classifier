@@ -1,5 +1,7 @@
 package csvCriminal
 
+import "github.com/Darklabel91/BrazilianLaws/laws"
+
 //CsvStruct csv file send to process
 type CsvStruct struct {
 	CnjNumber         string `json:"CnjNumber,omitempty"`
@@ -53,20 +55,5 @@ type CriminalAnalysis struct {
 	LawNickname               string `json:"LawNickname,omitempty"`
 	LawDefinition             string `json:"LawDefinition,omitempty"`
 	RelatedLawsuits           string `json:"RelatedLawsuits,omitempty"`
-	AllLaws                   []LawAnalysis
-}
-
-//LawAnalysis law struct
-type LawAnalysis struct {
-	LawArticle    string
-	Law           string
-	LawNickname   string
-	LawDefinition string
-}
-
-type CnjAnalysis struct {
-	Status   string
-	Year     string
-	District string
-	Uf       string
+	AllLaws                   []laws.Analysis
 }
